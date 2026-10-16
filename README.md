@@ -1,7 +1,8 @@
 # MCP Agents
 
 This repository is a home for experimental agents. The `void` directory contains
-the initial Void prototype, currently a small interactive Python script.
+Void, a command-line assistant with application launching, system information,
+and persistent local memory.
 
 ## Void
 
@@ -15,6 +16,8 @@ Void is under development. MCP integration and AI server functionality are
 planned, but are not implemented yet.
 
 ## Development Status
+
+**Current version:** v0.6, reusable tools in progress.
 
 See [the pre-launch development stage tracker](notes/DEVELOPMENT_STAGE.md) for
 the current version and roadmap.
