@@ -13,3 +13,8 @@ python void/main.py
 
 Void is under development. MCP integration and AI server functionality are
 planned, but are not implemented yet.
+
+## Development Status
+
+See [the pre-launch development stage tracker](notes/DEVELOPMENT_STAGE.md) for
+the current version and roadmap.
