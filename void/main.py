@@ -1,4 +1,4 @@
-from void_tools import open_application
+from void_tools import TOOLS, open_application
 from datetime import datetime
 #import sys
 #print(sys.executable)
@@ -8,34 +8,7 @@ import json
 import os
 import psutil
 
-# VOID v0.1
 
-#name = input("What should I call you? ") old line in first part
-# VOID MEMORY SYSTEM
-# =========================
-# VOID TOOLS
-# =========================
-
-# def open_application(app_name):
- #    """Open an approved Windows application."""
-
-  #  applications = {
-   #     "notepad": "notepad.exe",
-    #    "calculator": "calc.exe",
-     #   "paint": "mspaint.exe"
-    #}
-
-    #app_name = app_name.lower().strip()
-
-    #if app_name not in applications:
-     #   return f"I don't know how to open {app_name} yet."
-
-    #try:
-     #   subprocess.Popen([applications[app_name]])
-      #  return f"Opening {app_name}."
-
-    #except OSError as error:
-    #    return f"I couldn't open {app_name}: {error}"
 
 MEMORY_FILE = "void_memory.json"
 
@@ -96,23 +69,39 @@ while True:
 
     if command.startswith("open "):
         app_name = command[len("open "):].strip()
-        result = open_application(app_name)
+
+        tool = TOOLS["open_application"]
+        result = tool(app_name)
+
         print(f"Void: {result}")
 
     elif command.startswith("launch "):
         app_name = command[len("launch "):].strip()
-        result = open_application(app_name)
+
+        tool = TOOLS["launch_application"]
+        result = tool(app_name)
+
         print(f"Void: {result}")
 
     elif command.startswith("start "):
         app_name = command[len("start "):].strip()
-        result = open_application(app_name)
+        tool = TOOLS["start_application"]
+        result = tool(app_name)
         print(f"Void: {result}")
 
     elif command.startswith("please open "):
         app_name = command[len("please open "):].strip()
-        result = open_application(app_name)
+        tool = TOOLS["please_open_application"]
+        result = tool(app_name)
         print(f"Void: {result}")
+
+    elif command == "list apps":
+        applications = TOOLS["get_available_applications"]()
+
+        print("Void: I can open these applications:")
+
+        for app in applications:
+            print(f"- {app}")
 
 
     elif command == "system":
